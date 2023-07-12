@@ -31,12 +31,12 @@ render(); // We call this function once to render the initial state
 function render() {
   // Render the squares
   const squares = document.querySelector("#squares");
-  squares.replaceChildren();
-  shapes.forEach((shape) => {
-    const square = document.createElement("li");
-    square.classList.add(shape.color, shape.size);
-    squares.append(square);
+  const squareElements = shapes.map((shape) => {
+    const element = document.createElement("li");
+    element.classList.add(shape.color, shape.size);
+    return element;
   });
+  squares.replaceChildren(...squareElements);
 
   // TODO: Render the circles
 }

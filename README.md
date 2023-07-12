@@ -49,8 +49,8 @@ The answers can be viewed directly below the respective prompt. The `solution` b
 
 1. Add a new list in the HTML for circles, and update the JS so that circles are _also_ generated. The website should now generate both a square and a circle every second. The circles do not count toward the max number of shapes.
 
-    <details>
-    <summary>Show Answer</summary>
+     <details>
+     <summary>Show Answer</summary>
 
    ```html
    <ul id="circles"></ul>
@@ -60,16 +60,16 @@ The answers can be viewed directly below the respective prompt. The `solution` b
    function render() {
      // ...
      const circles = document.querySelector("#circles");
-     circles.replaceChildren();
-     shapes.forEach((shape) => {
-       const circle = document.createElement("li");
-       circle.classList.add("circle", shape.color, shape.size);
-       circles.append(circle);
+     const circleElements = shapes.map((shape) => {
+       const element = document.createElement("li");
+       element.classList.add("circle", shape.color, shape.size);
+       return element;
      });
+     circles.replaceChildren(...circleElements);
    }
    ```
 
-    </details>
+     </details>
 
 ## Extensions
 
