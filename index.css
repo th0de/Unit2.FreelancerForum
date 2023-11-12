@@ -9,7 +9,7 @@ li {
   margin: 1rem;
 }
 
-.circle {
+#circle > li {
   border-radius: 50%;
 }
 
